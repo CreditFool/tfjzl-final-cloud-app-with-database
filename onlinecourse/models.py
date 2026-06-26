@@ -112,6 +112,7 @@ class Question(models.Model):
     def __str__(self):
         return "Question: " + self.question_text
 
+
 class Choice(models.Model):
     question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200, default="choice")
@@ -127,4 +128,3 @@ class Choice(models.Model):
 class Submission(models.Model):
    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
    choices = models.ManyToManyField(Choice)
-
